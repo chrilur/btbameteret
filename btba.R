@@ -10,19 +10,11 @@ btba[1:19,4] <- NA
 btba[1:19,13] <- NA
 btba[92,2:13] <- NA
 
-btba[,3] <- as.numeric(btba[,3])
-btba[,4] <- as.numeric(btba[,4])
-btba[,6] <- as.numeric(btba[,6])
-btba[,13] <- as.numeric(btba[,13])
-btba[,2] <- as.numeric(btba[,2])
-btba[,5] <- as.numeric(btba[,5])
-btba[,6] <- as.numeric(btba[,6])
-btba[,7] <- as.numeric(btba[,7])
-btba[,8] <- as.numeric(btba[,8])
-btba[,9] <- as.numeric(btba[,9])
-btba[,10] <- as.numeric(btba[,10])
-btba[,11] <- as.numeric(btba[,11])
-btba[,12] <- as.numeric(btba[,12])
+# Gjør tall om fra character til numeric
+fiks.kol <- c(2,3,4,5,6,7,8,9,10,11,12,13)
+for (i in fiks.kol[1]:fiks.kol[12]) {
+        btba[,i] <- as.numeric(btba[,i])
+        }
 
 print(btba)
 
@@ -110,18 +102,6 @@ write.table(btba, 'data/btba.csv', sep=",", col.names=TRUE)
 write.table(jsfil, 'data/data.js', row.names=FALSE, col.names=FALSE, quote=FALSE)
 print(btba)
 
-## Sett inn ekstra rad
-##btba2 <- rbind(btba[1:91,],newrow,btba[-(1:91),])
-
-## Fikse utregning
-##    fiks.tall <- function(col,datacol){
-##            for (n in 93:110) {
-##                rad1 <- n-52
-##                btba[n,col] <- round((btba[n,datacol]-##btba[rad1,datacol])*100/btba[rad1,datacol], digits=2)
-##                }
-##                return(btba)
-##            }
-
 #Noen funksjoner for å beregne utvikling basert på mediantall
 
 hent.tall <- function(rad1,rad2,kol) {as.numeric(btba[rad1:rad2, kol])}
@@ -131,4 +111,13 @@ snitt <- function(rad1,rad2,kolbt,kolba){
     ba <- median(as.numeric(btba[rad1:rad2, kolba]))
     utregning <- ba*100/bt
     return(utregning)
+    }
+    
+snitt2014 <- function(x) {
+    tot <- btba[58:109,x]
+    tot[35] <- NA
+    tot <- as.integer(tot)
+    tot <- na.omit(tot)
+    tot <- mean(tot)
+    return(tot)
     }
