@@ -1,7 +1,7 @@
 BTBA-METERET
 ============
 
-Dette er en liten nettside som viser trafikkutviklingen på <a href="bt.no" target="blank">bt.no</a> og <a href="ba.no" target="blank">ba.no</a> over tid.
+Dette er en liten nettside som viser trafikkutviklingen på <a href="http://bt.no" target="blank">bt.no</a> og <a href="http://ba.no" target="blank">ba.no</a> over tid.
 
 R-scriptet btba.R kan kjøres for manuelt å oppdatere uketall fra <a href="http://tnslistene.no/" target="blank">TNS Gallup</a>.
 
