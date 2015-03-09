@@ -82,7 +82,7 @@ batot <- t(btba$batotal)
     get.txt <- function(x){
     txt <- character()
     for (i in 1:length(x)) {
-            txt <- paste0(txt, x[i], ",")
+            txt <- paste0(txt, x[i], ", ")
             }
             return(txt)
             }
