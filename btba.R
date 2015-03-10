@@ -98,7 +98,7 @@ batot <- t(btba$batotal)
     , sep="")
 
 #Skriv ut dataene
-write.table(btba, 'data/btba.csv', sep=",", col.names=TRUE)
+write.table(btba, 'data/btba.csv', sep=",", col.names=TRUE, row.names=FALSE)
 write.table(jsfil, 'data/data.js', row.names=FALSE, col.names=FALSE, quote=FALSE)
 print(btba)
 
