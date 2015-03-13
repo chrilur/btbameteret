@@ -523,11 +523,104 @@
 					series: [bttot,  batot]
 				});
 			});
-    
+        Highcharts.setOptions(
+			{
+				colors: farger
+			}); 
+			var chart;
+			$(document).ready(function() 
+			{
+				chart = new Highcharts.Chart(
+				{
+					chart: {
+						renderTo: 'container7',
+						type: 'spline',
+						spacingBottom: 0,
+						marginRight: 30,
+						marginBottom: 40
+					},
+					credits : {
+						enabled : false
+					},
+					title: {
+						text: 'Steirometeret'
+					},
+					xAxis: {
+						     <!-- lineWidth: 0, -->
+						 labels: {
+                            style: {
+								color: 'black'
+									},
+							align: 'left', x: 5, y: 10
+									},
+						tickInterval: 10,
+						categories: uker,
+						title: {
+							text: null
+						}
+					},
+					yAxis: { 
+						min: 30,
+                        max: 100,
+						startOnTick: false,
+						minPadding: 0,
+						gridLineWidth: 0,
+						<!-- lineWidth: 0, -->
+						title: {
+							text: 'BT mobil i % av BA total',
+							align: 'high'
+						},
+						labels: {
+							overflow: 'justify'
+						},
+					plotLines : [{
+					value : 100,
+					color : 'red',
+					dashStyle : 'shortdash',
+					width : 2,
+					label : {
+						text : 'BA = 100%', color : 'red'
+					}
+				}]},
+					tooltip: {
+						formatter: function() {
+							return ''+
+								this.series.name +'<br>Uke '+ this.x +': '+ this.y +'%';
+						}
+					},
+					plotOptions: 
+					{
+						series: 
+						{
+							marker: 
+							{
+								enabled: true,
+								radius: 3
+							}
+						}
+					},
+					legend: {
+						align: 'center',
+						x: 0,
+						y: 0,
+						floating: true,
+						borderWidth: 1,
+						backgroundColor: '#FFFFFF',
+						shadow: true
+					},  
+					scrollbar: 
+					{
+						enabled: false
+					},
+					series: [btmobvsba]
+				});
+			});
 </script>
 </head>
 <body style='margin:20px;padding:0px;'>
     <img src="http://statisk1.bt.no/data/lura/babttittel.png" style="height:80px;width:611px;margin-left:170px;">
+    <br>
+    <div id="container7" style="height:400px;width:980px;margin:0px;padding:0px;"></div>
     <br>
     <div id="container6" style="height:400px;width:980px;margin:0px;padding:0px;"></div>
     <br>
