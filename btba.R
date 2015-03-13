@@ -26,15 +26,18 @@ new.data4 <- as.integer(readline("Trafikk, BT desktop: "))
 new.data5 <- as.integer(readline("Trafikk, BA desktop: "))
 
 #Regn ut prosent markedsandel for BA og BT
-new.data6 <- round((100*new.data3/new.data2), digits=2)
-new.data7 <- round((100*new.data5/new.data4), digits=2)
+new.data6 <- round((100*new.data3/new.data2), digits=1)
+new.data7 <- round((100*new.data5/new.data4), digits=1)
 
 #Regn ut BT total og BA total
 new.data8 <- new.data2 + new.data4
 new.data9 <- new.data3 + new.data5
 
+#Regn ut BT Mobil i % av BA Total
+new.data10 <- round((100*new.data2/new.data9), digits=1)
+
 #Legg nye data til matrisen
-new.data <- c(new.data, new.data2, new.data3, new.data6, NA, NA, new.data4, new.data5, new.data7, NA, NA, new.data8, new.data9)
+new.data <- c(new.data, new.data2, new.data3, new.data6, NA, NA, new.data4, new.data5, new.data7, NA, NA, new.data8, new.data9, new.data10)
 btba <- rbind(btba, new.data)
 
 
@@ -53,7 +56,8 @@ btba[1:71,6] <- 'null'
 btba[1:19,3] <- 'null'
 btba[1:19,4] <- 'null'
 btba[1:19,13] <- 'null'
-btba[92,2:13] <- 'null'
+btba[92,2:14] <- 'null'
+btba[1:19,14] <- 'null'
 
 uker <- t(btba$uke)
 uker2 <- t(uker[53:length(uker)])
@@ -69,6 +73,7 @@ btnett1Y <- t(btba$btnett1år[53:length(btba$btnett1år)])
 banett1Y <- t(btba$banett1år[53:length(btba$banett1år)])
 bttot <- t(btba$bttotal)
 batot <- t(btba$batotal)
+btmobvsba <- t(btba$btmobvsba)
 
 #Funksjon for å lage tekststrenger av data
     get.txt <- function(x){
@@ -94,7 +99,8 @@ batot <- t(btba$batotal)
     'var uker = [',get.txt(uker),'];',
     'var uker2 = [',get.txt(uker2),'];',
     'var bttot = { name: ',"'",'BT total', "',",' data: [',get.txt(bttot),']};',
-    'var batot = { name: ',"'",'BA total', "',",' data: [',get.txt(batot),']};'
+    'var batot = { name: ',"'",'BA total', "',",' data: [',get.txt(batot),']};',
+    'var btmobvsba = { name: ',"'",'BT Mobil i % av BA total', "',",' data: [',get.txt(btmobvsba),']};'
     , sep="")
 
 #Skriv ut dataene
