@@ -1,7 +1,8 @@
+#Hente inn data
 btba <- read.table('data/btba.csv', sep=",", header=TRUE, stringsAsFactors=FALSE)
 
 #Fikse på dataene
-names(btba) <- c('uke', 'btmob', 'bamob', 'prosmob', 'btmob1år', 'bamob1år', 'btnett', 'banett', 'prosnett', 'btnett1år', 'banett1år', 'bttotal', 'batotal')
+names(btba) <- c('uke', 'btmob', 'bamob', 'prosmob', 'btmob1år', 'bamob1år', 'btnett', 'banett', 'prosnett', 'btnett1år', 'banett1år', 'bttotal', 'batotal', 'btmobvsba')
 
 ##Fiks data frame for å få tall
 btba[1:71,6] <- NA
@@ -40,15 +41,13 @@ new.data10 <- round((100*new.data2/new.data9), digits=1)
 new.data <- c(new.data, new.data2, new.data3, new.data6, NA, NA, new.data4, new.data5, new.data7, NA, NA, new.data8, new.data9, new.data10)
 btba <- rbind(btba, new.data)
 
-
-
 #Beregn endring fra ett år tilbake
 last.row <- nrow(btba)
 year <- last.row - 52
-btba[last.row, 5] <- round((btba[last.row,2]-btba[year,2]) * 100 / btba[year, 2], digits=2)
-btba[last.row, 6] <- round((btba[last.row,3]-btba[year,3]) * 100 / btba[year, 3], digits=2)
-btba[last.row, 10] <- round((btba[last.row,7]-btba[year,7]) * 100 / btba[year, 7], digits=2)
-btba[last.row, 11] <- round((btba[last.row,8]-btba[year,8]) * 100 / btba[year, 8], digits=2)
+btba[last.row, 5] <- round((btba[last.row,2]-btba[year,2]) * 100 / btba[year, 2], digits=1)
+btba[last.row, 6] <- round((btba[last.row,3]-btba[year,3]) * 100 / btba[year, 3], digits=1)
+btba[last.row, 10] <- round((btba[last.row,7]-btba[year,7]) * 100 / btba[year, 7], digits=1)
+btba[last.row, 11] <- round((btba[last.row,8]-btba[year,8]) * 100 / btba[year, 8], digits=1)
 
 #Transformer dataene slik at vi kan liste dem ut i en streng 
 
@@ -86,22 +85,22 @@ btmobvsba <- t(btba$btmobvsba)
     
 #Klistre sammen javascript-fil som rommer alle data
     jsfil <- paste(
-    'var btmobil = { name: ',"'",'BT Mobil', "',",' data: [',get.txt(btmobil),']};',
-    'var bamobil = { name: ',"'",'BA Mobil', "',",' data: [',get.txt(bamobil),']};',
-    'var btnett = { name: ',"'",'Bergens Tidende', "',",' data: [',get.txt(btnett),']};',
-    'var banett = { name: ',"'",'Bergensavisen', "',",' data: [',get.txt(banett),']};',
-    'var prosmob = { name: ',"'",'Mobil: BA i % av BT', "',",' data: [',get.txt(prosmob),']};',
-    'var prosnett = { name: ',"'",'Nett: BA i % av BT', "',",' data: [',get.txt(prosnett),']};',
-    'var btmobil1Y = { name: ',"'",'BT Mobil', "',",' data: [',get.txt(btmob1Y),']};',
-    'var badesktop1Y = { name: ',"'",'BA desktop', "',",' data: [',get.txt(banett1Y),']};',
-    'var btdesktop1Y = { name: ',"'",'BT desktop', "',",' data: [',get.txt(btnett1Y),']};',
-    'var bamobil1Y = { name: ',"'",'BA Mobil', "',",' data: [',get.txt(bamob1Y),']};',
-    'var uker = [',get.txt(uker),'];',
-    'var uker2 = [',get.txt(uker2),'];',
-    'var bttot = { name: ',"'",'BT total', "',",' data: [',get.txt(bttot),']};',
-    'var batot = { name: ',"'",'BA total', "',",' data: [',get.txt(batot),']};',
-    'var btmobvsba = { name: ',"'",'BT Mobil i % av BA total', "',",' data: [',get.txt(btmobvsba),']};'
-    , sep="")
+            'var btmobil = { name: ',"'",'BT Mobil', "',",' data: [',get.txt(btmobil),']};',
+            'var bamobil = { name: ',"'",'BA Mobil', "',",' data: [',get.txt(bamobil),']};',
+            'var btnett = { name: ',"'",'Bergens Tidende', "',",' data: [',get.txt(btnett),']};',
+            'var banett = { name: ',"'",'Bergensavisen', "',",' data: [',get.txt(banett),']};',
+            'var prosmob = { name: ',"'",'Mobil: BA i % av BT', "',",' data: [',get.txt(prosmob),']};',
+            'var prosnett = { name: ',"'",'Nett: BA i % av BT', "',",' data: [',get.txt(prosnett),']};',
+            'var btmobil1Y = { name: ',"'",'BT Mobil', "',",' data: [',get.txt(btmob1Y),']};',
+            'var badesktop1Y = { name: ',"'",'BA desktop', "',",' data: [',get.txt(banett1Y),']};',
+            'var btdesktop1Y = { name: ',"'",'BT desktop', "',",' data: [',get.txt(btnett1Y),']};',
+            'var bamobil1Y = { name: ',"'",'BA Mobil', "',",' data: [',get.txt(bamob1Y),']};',
+            'var uker = [',get.txt(uker),'];',
+            'var uker2 = [',get.txt(uker2),'];',
+            'var bttot = { name: ',"'",'BT total', "',",' data: [',get.txt(bttot),']};',
+            'var batot = { name: ',"'",'BA total', "',",' data: [',get.txt(batot),']};',
+            'var btmobvsba = { name: ',"'",'BT mobil i % av BA total', "',",' data: [',get.txt(btmobvsba),']};',
+            sep="")
 
 #Skriv ut dataene
 write.table(btba, 'data/btba.csv', sep=",", col.names=TRUE, row.names=FALSE)
