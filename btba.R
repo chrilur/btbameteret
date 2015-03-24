@@ -20,11 +20,13 @@ for (i in fiks.kol[1]:fiks.kol[12]) {
 print(btba)
 
 # Hent inn nye data
-new.data <- as.integer(readline("Uke: "))
-new.data2 <- as.integer(readline("Trafikk, BT mobil: "))
-new.data3 <- as.integer(readline("Trafikk, BA mobil: "))
-new.data4 <- as.integer(readline("Trafikk, BT desktop: "))
-new.data5 <- as.integer(readline("Trafikk, BA desktop: "))
+# new.data <- as.integer(readline("Uke: "))
+source('scrape.R')
+new.data <- as.integer(paste0(2015,uke))
+new.data2 <- btmob
+new.data3 <- bamob
+new.data4 <- btnett
+new.data5 <- banett
 
 #Regn ut prosent markedsandel for BA og BT
 new.data6 <- round((100*new.data3/new.data2), digits=1)
