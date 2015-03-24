@@ -22,7 +22,7 @@ print(btba)
 # Hent inn nye data
 # new.data <- as.integer(readline("Uke: "))
 source('scrape.R')
-
+new.data <- as.integer(paste0(2015,uke))
 new.data2 <- btmob
 new.data3 <- bamob
 new.data4 <- btnett
