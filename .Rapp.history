@@ -1,0 +1,79 @@
+a <- 2+3
+a
+install.packages('colorspace')
+install.packages('ggplot2')
+library(ggplot2)
+head(ww2)
+demo(ww2)
+library("leaflet") #
+m <- leaflet() %>% addTiles()#
+m <- m %>% setView(5.22, 60.34, zoom = 14)#
+m <- m %>% addPopups(5.222, 60.338, 'Her er Sjøforsvarets <b>treningsbane</b>')
+m
+download.file("https://opendata.socrata.com/api/views/ddym-zvjk/rows.csv?accessType=DOWNLOAD", "starbucks.csv", method = "curl")#
+starbucks <- read.csv("starbucks.csv") #
+starmap <- leaflet() %>% addTiles() %>% setView(-84.3847, 33.7613, zoom = 16) %>% #
+  addMarkers(data = starbucks, lat = ~ Latitude, lng = ~ Longitude, popup = starbucks$Name)
+starmap
+m <- leaflet() %>% addTiles()
+m
+starmap
+m
+m <- m %>% setView(5.22, 60.34, zoom = 14)
+m
+m <- m %>% addPopups(5.222, 60.338, 'Her er Sjøforsvarets <b>treningsbane</b>')
+m
+starmap
+library("leaflet") #
+m <- leaflet() %>% addTiles()#
+m <- m %>% setView(5.22, 60.34, zoom = 14)#
+m <- m %>% addPopups(5.222, 60.338, 'Her er Sjøforsvarets <b>treningsbane</b>')
+m
+m
+download.file("https://opendata.socrata.com/api/views/ddym-zvjk/rows.csv?accessType=DOWNLOAD", "starbucks.csv", method = "curl")#
+starbucks <- read.csv("starbucks.csv") #
+starmap <- leaflet() %>% addTiles() %>% setView(-84.3847, 33.7613, zoom = 16) %>% addMarkers(data = starbucks, lat = ~ Latitude, lng = ~ Longitude, popup = starbucks$Name)
+starmap
+setwd('~/Documents/R/btbameteret')
+source('btba.R')
+dir()
+cd repo
+setwd('repo')
+source('btba.R')
+source('btba.R')
+download.file("https://opendata.socrata.com/api/views/ddym-zvjk/rows.csv?accessType=DOWNLOAD", "starbucks.csv", method = "curl")#
+starbucks <- read.csv("starbucks.csv") #
+starmap <- leaflet() %>% addTiles() %>% setView(-84.3847, 33.7613, zoom = 16) %>% addMarkers(data = starbucks, lat = ~ Latitude, lng = ~ Longitude, popup = starbucks$Name)
+starmap
+source('btba.R')
+source('btba.R')
+source('btba.R')
+m
+df = data.frame(Lat = 1:10, Long = rnorm(10))
+df
+leaflet(df) %>% addCircles()
+leaflet() %>% addCircles(data = df)
+leaflet() %>% addTiles()
+m <- leaflet() %>% addTiles()#
+z <- 12#
+sw <- c(5.30,60.3)#
+m <- m %>% setView(sw, zoom = z)
+sw
+m <- leaflet() %>% addTiles()#
+z <- 12#
+lo <- 5.30#
+la <- 60.4
+m <- m %>% setView(lo,la, zoom = z)
+m
+z <- 14
+m
+m <- m %>% setView(lo,la, zoom = z)
+m
+m = leaflet() %>% addTiles()#
+df = data.frame(#
+  lat = rnorm(100),#
+  lng = rnorm(100),#
+  size = runif(100, 5, 20),#
+  color = sample(colors(), 100)#
+)
+m
