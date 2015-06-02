@@ -65,6 +65,7 @@ sisteti <- length(btba$btmob1år)-10
 
 uker <- t(btba$uke)
 uker2 <- t(uker[53:length(uker)])
+uker3 <- t(uker[sisteti:length(uker)])
 btmobil <- t(btba$btmob)
 bamobil <- t(btba$bamob)
 prosmob <- t(btba$prosmob)
@@ -106,6 +107,7 @@ banett1Y10 <- t(btba$banett1år[sisteti:length(btba$btmob1år)])
             'var bamobil1Y = { name: ',"'",'BA mobil', "',",' data: [',get.txt(bamob1Y),']};',
             'var uker = [',get.txt(uker),'];',
             'var uker2 = [',get.txt(uker2),'];',
+            'var uker3 = [',get.txt(uker3),'];',
             'var bttot = { name: ',"'",'BT total', "',",' data: [',get.txt(bttot),']};',
             'var batot = { name: ',"'",'BA total', "',",' data: [',get.txt(batot),']};',
             'var btmobvsba = { name: ',"'",'BT mobil i % av BA total', "',",' data: [',get.txt(btmobvsba),']};',
