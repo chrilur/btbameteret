@@ -60,6 +60,9 @@ btba[1:19,13] <- 'null'
 btba[92,2:14] <- 'null'
 btba[1:19,14] <- 'null'
 
+#Hente ut de ti siste ukene til 1-årssammenligning
+sisteti <- length(btba$btmob1år)-10
+
 uker <- t(btba$uke)
 uker2 <- t(uker[53:length(uker)])
 btmobil <- t(btba$btmob)
@@ -75,6 +78,10 @@ banett1Y <- t(btba$banett1år[53:length(btba$banett1år)])
 bttot <- t(btba$bttotal)
 batot <- t(btba$batotal)
 btmobvsba <- t(btba$btmobvsba)
+btmob1Y10 <- t(btba$btmob1år[sisteti:length(btba$btmob1år)])
+bamob1Y10 <- t(btba$bamob1år[sisteti:length(btba$btmob1år)])
+btnett1Y10 <- t(btba$btnett1år[sisteti:length(btba$btmob1år)])
+banett1Y10 <- t(btba$banett1år[sisteti:length(btba$btmob1år)])
 
 #Funksjon for å lage tekststrenger av data
     get.txt <- function(x){
@@ -93,15 +100,19 @@ btmobvsba <- t(btba$btmobvsba)
             'var banett = { name: ',"'",'Bergensavisen', "',",' data: [',get.txt(banett),']};',
             'var prosmob = { name: ',"'",'Mobil: BA i % av BT', "',",' data: [',get.txt(prosmob),']};',
             'var prosnett = { name: ',"'",'Nett: BA i % av BT', "',",' data: [',get.txt(prosnett),']};',
-            'var btmobil1Y = { name: ',"'",'BT Mobil', "',",' data: [',get.txt(btmob1Y),']};',
+            'var btmobil1Y = { name: ',"'",'BT mobil', "',",' data: [',get.txt(btmob1Y),']};',
             'var badesktop1Y = { name: ',"'",'BA desktop', "',",' data: [',get.txt(banett1Y),']};',
             'var btdesktop1Y = { name: ',"'",'BT desktop', "',",' data: [',get.txt(btnett1Y),']};',
-            'var bamobil1Y = { name: ',"'",'BA Mobil', "',",' data: [',get.txt(bamob1Y),']};',
+            'var bamobil1Y = { name: ',"'",'BA mobil', "',",' data: [',get.txt(bamob1Y),']};',
             'var uker = [',get.txt(uker),'];',
             'var uker2 = [',get.txt(uker2),'];',
             'var bttot = { name: ',"'",'BT total', "',",' data: [',get.txt(bttot),']};',
             'var batot = { name: ',"'",'BA total', "',",' data: [',get.txt(batot),']};',
             'var btmobvsba = { name: ',"'",'BT mobil i % av BA total', "',",' data: [',get.txt(btmobvsba),']};',
+            'var btmob1Y10 = { name: ',"'",'BT mobil', "',",' data: [',get.txt(btmob1Y10),']};',
+            'var bamob1Y10 = { name: ',"'",'BA mobil', "',",' data: [',get.txt(bamob1Y10),']};',
+            'var btnett1Y10 = { name: ',"'",'BT desktop', "',",' data: [',get.txt(btnett1Y10),']};',
+            'var banett1Y10 = { name: ',"'",'BA desktop', "',",' data: [',get.txt(banett1Y10),']};',
             sep="")
 
 #Skriv ut dataene
