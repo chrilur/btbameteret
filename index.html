@@ -6,6 +6,7 @@
     <script type="text/javascript" src="http://multimedia.bt.no/krinkelkroken/templates/charts/javascript/jquery-1.8.2.min.js"></script> 
     <script type="text/javascript" src="http://multimedia.bt.no/krinkelkroken/templates/charts/javascript/tabletop.js"></script>
     <script type="text/javascript" src="data/data.js"></script>
+    <script type="text/javascript" src="data/code.js"></script>
 	<script src="http://code.highcharts.com/highcharts.js"></script>  
     
     
@@ -48,17 +49,9 @@
 					},
 					xAxis: {
 						     <!-- lineWidth: 0, -->
-						 labels: {
-                            style: {
-								color: 'black'
-									},
-							align: 'left', x: 5, y: 10
-									},
+				        labels: xaxisstandard,
 						tickInterval: 10,
-						categories: uker,
-						title: {
-							text: ''
-						}
+						categories: uker
 					},
 					yAxis: { 
 						min: 20000,
@@ -91,36 +84,10 @@
 						text : 'BA-snitt 2013'}
                     }]
                     },
-					tooltip: {
-						formatter: function() {
-							return ''+
-								this.series.name +'<br>Uke '+ this.x +': '+ this.y +' ';
-						}
-					},
-					plotOptions: 
-					{
-						series: 
-						{
-							marker: 
-							{
-								enabled: true,
-								radius: 3
-							}
-						}
-					},
-					legend: {
-						align: 'center',
-						x: 0,
-						y: 0,
-						floating: true,
-						borderWidth: 1,
-						backgroundColor: '#FFFFFF',
-						shadow: true
-					},  
-					scrollbar: 
-					{
-						enabled: false
-					},
+					tooltip: number,
+					plotOptions: plotvalg,
+					legend: legende,  
+					scrollbar: noscroll,
 					series: [btmobil,  bamobil]
 				});
 			});
@@ -149,17 +116,10 @@
 					},
 					xAxis: {
 						     <!-- lineWidth: 0, -->
-						 labels: {
-                            style: {
-								color: 'black'
-									},
-							align: 'left', x: 5, y: 10
-									},
+						 labels: xaxisstandard,
 						tickInterval: 10,
 						categories: uker,
-						title: {
-							text: null
-						}
+						title: notitle
 					},
 					yAxis: { 
 						min: 50000,
@@ -193,32 +153,9 @@
 					}
 				}]
                     },
-					tooltip: {
-						formatter: function() {
-							return ''+
-								this.series.name +'<br>Uke '+ this.x +': '+ this.y +' ';
-						}
-					},
-					plotOptions: 
-					{
-						series: 
-						{
-							marker: 
-							{
-								enabled: true,
-								radius: 3
-							}
-						}
-					},
-					legend: {
-						align: 'center',
-						x: 0,
-						y: 0,
-						floating: true,
-						borderWidth: 1,
-						backgroundColor: '#FFFFFF',
-						shadow: true
-					},  
+					tooltip: number,
+					plotOptions: plotvalg,
+					legend: legende,  
 					scrollbar: 
 					{
 						enabled: false
@@ -243,25 +180,16 @@
 						marginRight: 30,
 						marginBottom: 40
 					},
-					credits : {
-						enabled : false
-					},
+					credits : noscroll,
 					title: {
 						text: 'BA målt mot BT'
 					},
 					xAxis: {
 						     <!-- lineWidth: 0, -->
-						 labels: {
-                            style: {
-								color: 'black'
-									},
-							align: 'left', x: 5, y: 10
-									},
+						 labels: xaxisstandard,
 						tickInterval: 10,
 						categories: uker,
-						title: {
-							text: null
-						}
+						title: notitle
 					},
 					yAxis: { 
 						min: 30,
@@ -295,36 +223,10 @@
 					}
 				}]
 					},
-					tooltip: {
-						formatter: function() {
-							return ''+
-								this.series.name +'<br>Uke '+ this.x +': '+ this.y +'%';
-						}
-					},
-					plotOptions: 
-					{
-						series: 
-						{
-							marker: 
-							{
-								enabled: true,
-								radius: 2
-							}
-						}
-					},
-					legend: {
-						align: 'center',
-						x: 0,
-						y: 0,
-						floating: true,
-						borderWidth: 1,
-						backgroundColor: '#FFFFFF',
-						shadow: true
-					},  
-					scrollbar: 
-					{
-						enabled: false
-					},
+					tooltip: percent,
+					plotOptions: plotvalg,
+					legend: legende,  
+					scrollbar: noscroll,
 					series: [prosmob, prosnett]
 				});
 			});
@@ -353,17 +255,9 @@
 					},
 					xAxis: {
 						     <!-- lineWidth: 0, -->
-						 labels: {
-                            style: {
-								color: 'black'
-									},
-							align: 'left', x: 5, y: 10
-									},
-						tickInterval: 10,
-						categories: uker3,
-						title: {
-							text: null
-						}
+				        labels: xaxisstandard,
+						tickInterval: 1,
+						categories: uker3
 					},
 					yAxis: { 
 						min: -35,
@@ -381,36 +275,10 @@
 					
                     },
                     
-					tooltip: {
-						formatter: function() {
-							return ''+
-								this.series.name +'<br>Uke '+ this.x +': '+ this.y +'%';
-						}
-					},
-					plotOptions: 
-					{
-						series: 
-						{
-							marker: 
-							{
-								enabled: true,
-								radius: 2
-							}
-						}
-					},
-					legend: {
-						align: 'center',
-						x: 0,
-						y: 0,
-						floating: true,
-						borderWidth: 1,
-						backgroundColor: '#FFFFFF',
-						shadow: true
-					},  
-					scrollbar: 
-					{
-						enabled: false
-					},
+					tooltip: percent,
+					plotOptions: plotvalg,
+					legend: legende,  
+					scrollbar: noscroll,
 					series: [btmob1Y10, bamob1Y10, btnett1Y10, banett1Y10]
 				});
 			});
@@ -439,17 +307,10 @@
 					},
 					xAxis: {
 						     <!-- lineWidth: 0, -->
-						 labels: {
-                            style: {
-								color: 'black'
-									},
-							align: 'left', x: 5, y: 10
-									},
+				        labels: xaxisstandard,
 						tickInterval: 10,
 						categories: uker,
-						title: {
-							text: null
-						}
+						title: notitle
 					},
 					yAxis: { 
 						min: 100000,
@@ -482,36 +343,10 @@
 						text : 'BA-snitt 2014'}
                     }]
                     },
-					tooltip: {
-						formatter: function() {
-							return ''+
-								this.series.name +'<br>Uke '+ this.x +': '+ this.y +' ';
-						}
-					},
-					plotOptions: 
-					{
-						series: 
-						{
-							marker: 
-							{
-								enabled: true,
-								radius: 3
-							}
-						}
-					},
-					legend: {
-						align: 'center',
-						x: 0,
-						y: 0,
-						floating: true,
-						borderWidth: 1,
-						backgroundColor: '#FFFFFF',
-						shadow: true
-					},  
-					scrollbar: 
-					{
-						enabled: false
-					},
+					tooltip: number,
+					plotOptions: plotvalg,
+					legend: legende,  
+					scrollbar: noscroll,
 					series: [bttot,  batot]
 				});
 			});
@@ -539,17 +374,10 @@
 					},
 					xAxis: {
 						     <!-- lineWidth: 0, -->
-						 labels: {
-                            style: {
-								color: 'black'
-									},
-							align: 'left', x: 5, y: 10
-									},
+				        labels: xaxisstandard,
 						tickInterval: 10,
 						categories: uker,
-						title: {
-							text: null
-						}
+						title: notitle
 					},
 					yAxis: { 
 						min: 40,
@@ -574,36 +402,10 @@
 						text : 'BA = 100%', color : 'red'
 					}
 				}]},
-					tooltip: {
-						formatter: function() {
-							return ''+
-								this.series.name +'<br>Uke '+ this.x +': '+ this.y +'%';
-						}
-					},
-					plotOptions: 
-					{
-						series: 
-						{
-							marker: 
-							{
-								enabled: true,
-								radius: 3
-							}
-						}
-					},
-					legend: {
-						align: 'center',
-						x: 0,
-						y: 0,
-						floating: true,
-						borderWidth: 1,
-						backgroundColor: '#FFFFFF',
-						shadow: true
-					},  
-					scrollbar: 
-					{
-						enabled: false
-					},
+					tooltip: percent,
+					plotOptions: plotvalg,
+					legend: legende,  
+					scrollbar: noscroll,
 					series: [btmobvsba]
 				});
 			});
@@ -611,19 +413,19 @@
 </head>
 <body style='margin:20px;padding:0px;'>
     <img src="http://statisk1.bt.no/data/lura/babttittel.png" style="height:80px;width:611px;margin-left:170px;">
-    <br>
+    <br><br>
     <div id="container7" style="height:300px;width:980px;margin:0px;padding:0px;"></div>
-    <br>
+    <br><br>
     <div id="container6" style="height:400px;width:980px;margin:0px;padding:0px;"></div>
-    <br>
+    <br><br>
     <div id="container1" style="height:400px;width:980px;margin:0px;padding:0px;"></div>​
-    <br>
+    <br><br>
     <div id="container2" style="height:400px;width:980px;margin:0px;padding:0px;"></div>
-    <br>
+    <br><br>
     <div id="container3" style="height:500px;width:980px;margin:0px;padding:0px;"></div>
-    <br>
+    <br><br>
     <div id="container5" style="height:400px;width:980px;margin:0px;padding:0px;"></div>
-    <br>
+    <br><br>
     <p>Tallene fra TNS Gallup viser et gjennomsnitt av antall daglige unike brukere pr. uke.<br>Tall mangler for uke 35 2014.</p>
 </body>
 </html>
