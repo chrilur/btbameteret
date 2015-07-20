@@ -182,7 +182,7 @@
 					},
 					credits : noscroll,
 					title: {
-						text: 'BA målt mot BT'
+						text: 'BA målt mot BT - historisk'
 					},
 					xAxis: {
 						     <!-- lineWidth: 0, -->
@@ -280,6 +280,58 @@
 					legend: legende,  
 					scrollbar: noscroll,
 					series: [btmob1Y10, bamob1Y10, btnett1Y10, banett1Y10]
+				});
+			});
+    
+     Highcharts.setOptions(
+  		{
+				colors: farger
+			}); 
+			var chart;
+			$(document).ready(function() 
+			{
+				chart = new Highcharts.Chart(
+				{
+					chart: {
+						renderTo: 'container8',
+						type: 'column',
+						spacingBottom: 0,
+						marginRight: 30,
+						marginBottom: 40
+					},
+					credits : {
+						enabled : false
+					},
+					title: {
+						text: 'BA i % av BT, siste 10 uker'
+					},
+					xAxis: {
+						     <!-- lineWidth: 0, -->
+				        labels: xaxisstandard,
+						tickInterval: 1,
+						categories: uker3
+					},
+					yAxis: { 
+						min: 0,
+						startOnTick: false,
+						minPadding: 0,
+						gridLineWidth: 0,
+						<!-- lineWidth: 0, -->
+						title: {
+							text: 'BAs trafikk i prosent av BTs trafikk',
+							align: 'high'
+						},
+						labels: {
+							overflow: 'justify'
+						},
+					
+                    },
+                    
+					tooltip: percent,
+					plotOptions: plotvalg,
+					legend: legende,  
+					scrollbar: noscroll,
+					series: [prosmob10, prosnett10]
 				});
 			});
     
@@ -421,6 +473,8 @@
     <div id="container1" style="height:400px;width:980px;margin:0px;padding:0px;"></div>​
     <br><br>
     <div id="container2" style="height:400px;width:980px;margin:0px;padding:0px;"></div>
+    <br><br>
+    <div id="container8" style="height:400px;width:980px;margin:0px;padding:0px;"></div>
     <br><br>
     <div id="container3" style="height:500px;width:980px;margin:0px;padding:0px;"></div>
     <br><br>
