@@ -61,7 +61,7 @@ btba[92,2:14] <- 'null'
 btba[1:19,14] <- 'null'
 
 #Hente ut de ti siste ukene til 1-årssammenligning
-sisteti <- length(btba$btmob1år)-10
+sisteti <- length(btba$btmob1år)-9
 
 uker <- t(btba$uke)
 uker2 <- t(uker[53:length(uker)])
@@ -83,6 +83,8 @@ btmob1Y10 <- t(btba$btmob1år[sisteti:length(btba$btmob1år)])
 bamob1Y10 <- t(btba$bamob1år[sisteti:length(btba$btmob1år)])
 btnett1Y10 <- t(btba$btnett1år[sisteti:length(btba$btmob1år)])
 banett1Y10 <- t(btba$banett1år[sisteti:length(btba$btmob1år)])
+prosmob10 <- t(btba$prosmob[sisteti:length(btba$prosmob)])
+prosnett10 <- t(btba$prosnett[sisteti:length(btba$prosnett)])
 
 #Funksjon for å lage tekststrenger av data
     get.txt <- function(x){
@@ -115,6 +117,8 @@ banett1Y10 <- t(btba$banett1år[sisteti:length(btba$btmob1år)])
             'var bamob1Y10 = { name: ',"'",'BA mobil', "',",' data: [',get.txt(bamob1Y10),']};',
             'var btnett1Y10 = { name: ',"'",'BT desktop', "',",' data: [',get.txt(btnett1Y10),']};',
             'var banett1Y10 = { name: ',"'",'BA desktop', "',",' data: [',get.txt(banett1Y10),']};',
+            'var prosmob10 = { name: ',"'",'Mobil: BA i % av BT', "',",' data: [',get.txt(prosmob10),']};',
+            'var prosnett10 = { name: ',"'",'Desktop: BA i % av BT', "',",' data: [',get.txt(prosnett10),']};',
             sep="")
 
 #Skriv ut dataene
