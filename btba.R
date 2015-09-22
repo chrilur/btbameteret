@@ -59,6 +59,7 @@ btba[1:19,4] <- 'null'
 btba[1:19,13] <- 'null'
 btba[92,2:14] <- 'null'
 btba[1:19,14] <- 'null'
+btba[144,fiksna] <- 'null'
 
 #Hente ut de ti siste ukene til 1-årssammenligning
 sisteti <- length(btba$btmob1år)-9
