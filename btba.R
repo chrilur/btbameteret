@@ -52,7 +52,7 @@ btba[last.row, 10] <- round((btba[last.row,7]-btba[year,7]) * 100 / btba[year, 7
 btba[last.row, 11] <- round((btba[last.row,8]-btba[year,8]) * 100 / btba[year, 8], digits=1)
 
 #Transformer dataene slik at vi kan liste dem ut i en streng 
-
+fiksna <- c(5,6,10,11)
 btba[1:71,6] <- 'null'
 btba[1:19,3] <- 'null'
 btba[1:19,4] <- 'null'
