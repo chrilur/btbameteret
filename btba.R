@@ -10,6 +10,8 @@ btba[1:19,3] <- NA
 btba[1:19,4] <- NA
 btba[1:19,13] <- NA
 btba[92,2:13] <- NA
+btba[144,5:6] <- NA
+btba[144,10:11] <- NA
 
 # Gjør tall om fra character til numeric
 fiks.kol <- c(2,3,4,5,6,7,8,9,10,11,12,13)
