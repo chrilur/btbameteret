@@ -2,7 +2,7 @@ library(RCurl)
 library(RJSONIO)
 
 #Sett uke
-uke <- as.integer(readline("Uke : "))
+#uke <- as.integer(readline("Uke : "))
 
 #Skrap data
 urlnett <- paste0('http://tnslistene.no/?metric=uv&list_id=1&year=2015&week=',uke)
