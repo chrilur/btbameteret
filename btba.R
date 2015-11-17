@@ -19,7 +19,7 @@ for (i in fiks.kol[1]:fiks.kol[12]) {
         btba[,i] <- as.numeric(btba[,i])
         }
 
-print(btba)
+#print(btba)
 
 # Hent inn nye data
 # new.data <- as.integer(readline("Uke: "))
@@ -127,7 +127,7 @@ prosnett10 <- t(btba$prosnett[sisteti:length(btba$prosnett)])
 #Skriv ut dataene
 write.table(btba, 'data/btba.csv', sep=",", col.names=TRUE, row.names=FALSE)
 write.table(jsfil, 'data/data.js', row.names=FALSE, col.names=FALSE, quote=FALSE)
-print(btba)
+#print(btba)
 
 #Noen funksjoner for å beregne utvikling basert på mediantall
 
