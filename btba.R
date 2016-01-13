@@ -24,7 +24,7 @@ for (i in fiks.kol[1]:fiks.kol[12]) {
 # Hent inn nye data
 # new.data <- as.integer(readline("Uke: "))
 source('scrape.R')
-new.data <- as.integer(paste0(2015,uke))
+new.data <- as.integer(paste0(2016,uke))
 new.data2 <- btmob
 new.data3 <- bamob
 new.data4 <- btnett
