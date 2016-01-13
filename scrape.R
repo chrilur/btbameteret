@@ -5,8 +5,8 @@ library(RJSONIO)
 #uke <- as.integer(readline("Uke : "))
 
 #Skrap data
-urlnett <- paste0('http://tnslistene.no/?metric=uv&list_id=1&year=2015&week=',uke)
-urlmob <- paste0('http://tnslistene.no/?metric=uv&list_id=6&year=2015&week=',uke)
+urlnett <- paste0('http://tnslistene.no/?metric=uv&list_id=1&year=2016&week=',uke)
+urlmob <- paste0('http://tnslistene.no/?metric=uv&list_id=6&year=2016&week=',uke)
 tnsnett <- getURL(urlnett)
 tnsmob <- getURL(urlmob)
 
